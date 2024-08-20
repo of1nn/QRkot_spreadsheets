@@ -31,10 +31,17 @@ async def get_report(
         session
     )
     spreadsheetid = await spreadsheets_create(wrapper_services)
+<<<<<<< HEAD
     link = f'https://docs.google.com/spreadsheets/d/{spreadsheetid}'
+=======
+>>>>>>> c5a25221ecd8c64bdd0de855ebccb23c8c63539d
 
     await set_user_permissions(spreadsheetid, wrapper_services)
     await spreadsheets_update_value(spreadsheetid,
                                     projects,
                                     wrapper_services)
+<<<<<<< HEAD
     return {'report_link': link}
+=======
+    return projects
+>>>>>>> c5a25221ecd8c64bdd0de855ebccb23c8c63539d
