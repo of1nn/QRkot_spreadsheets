@@ -16,7 +16,7 @@ async def spreadsheets_create(wrapper_services: Aiogoogle) -> str:
     now_date_time = datetime.now().strftime(FORMAT)
     title = f'Отчет от {now_date_time}'
     service = await wrapper_services.discover('sheets', 'v4')
-    spreadsheet_body = SPREADSHEET_DEFAULT.copy()
+    spreadsheet_body = SPREADSHEET_DEFAULT.deepcopy()
     spreadsheet_body['properties']['title'] = title
 
     response = await wrapper_services.as_service_account(
@@ -30,7 +30,7 @@ async def set_user_permissions(
         spreadsheetid: str,
         wrapper_services: Aiogoogle
 ) -> None:
-    permissions_body = PERMISSIONS_DEFAULT.copy()
+    permissions_body = PERMISSIONS_DEFAULT.deepcopy()
     service = await wrapper_services.discover('drive', 'v3')
     await wrapper_services.as_service_account(
         service.permissions.create(

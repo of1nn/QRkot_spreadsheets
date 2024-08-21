@@ -19,7 +19,7 @@ router = APIRouter()
 
 @router.post(
     '/',
-    response_model=list[CharityProjectDB],
+    response_model=dict[str, str],
     dependencies=[Depends(current_superuser)],
 )
 async def get_report(
